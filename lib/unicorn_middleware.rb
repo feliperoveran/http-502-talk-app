@@ -1,5 +1,5 @@
 class UnicornMiddleware
-  UNICORN_TIMEOUT = 5
+  UNICORN_TIMEOUT = 3
 
   def initialize(app)
     @app = app
@@ -19,6 +19,6 @@ class UnicornMiddleware
     @app.call(env)
   ensure
     thread[:done] = true
-    thread.run
+    thread.run if thread.status == 'sleep'
   end
 end
