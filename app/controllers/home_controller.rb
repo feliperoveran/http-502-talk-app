@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    sleep(rand(1..10))
+    sleep(rand(1..5))
   end
 end
